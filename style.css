@@ -1,0 +1,613 @@
+/* root */
+:root {
+    --light-grey: rgb(241, 242, 242);
+    --red: rgb(193, 55, 51);
+    --dark-red: hsl(0, 51%, 42%);
+    --grey: rgb(225, 225, 225);
+    --yellow: rgb(247 207 70);
+    --blue: rgb(66 105 183);
+    --normal: hsla(60, 20%, 57%, 0.799);
+    --fire: rgb(225, 134, 68);
+    --water: rgb(112, 143, 233);
+    --electric: rgb(242, 209, 84); 
+    --grass: rgb(139, 198, 96); 
+    --ice: rgb(166, 214, 215);
+    --fighting: hsl(6, 50%, 50%);
+    --poison: hsl(295, 38%, 50%);
+    --ground: rgb(219, 193, 117);
+    --flying: rgb(164, 145, 234);
+    --psychic: rgb(230, 99, 136);
+    --bug: rgb(171, 183, 66); 
+    --rock: rgb(180, 161, 75);
+    --ghost: rgb(108, 89, 148);
+    --dragon: rgb(105, 59, 239);
+    --dark: rgb(108, 89, 74);
+    --steel: rgb(184, 184, 206);
+    --fairy: hsl(354, 49%, 81%);
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utility Classes */
+
+.normal{ 
+    background-color: var(--normal)}
+
+.fire {
+    background-color:var(--fire)}
+
+.water {
+    background-color:var(--water)}
+
+.electric {
+    background-color:var(--electric)}
+
+.grass {
+    background-color:var(--grass)}
+
+.ice {
+    background-color:var(--ice)}
+
+.fighting {
+    background-color:var(--fighting)}
+
+.poison {
+    background-color:var(--poison)}
+
+.ground {
+    background-color:var(--ground)}
+
+.flying {
+    background-color:var(--flying)}
+
+.psychic {
+    background-color:var(--psychic)}
+
+.bug {
+    background-color:var(--bug)}
+
+.rock {
+    background-color:var(--rock)}
+
+.ghost {
+    background-color:var(--ghost)}
+
+.dragon {
+    background-color:var(--dragon)}
+
+.dark {
+    background-color:var(--dark)}
+
+.steel {
+    background-color:var(--steel)}
+
+.fairy {
+    background-color:var(--fairy)}
+
+.flex {
+    display: flex;
+    gap: 1rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.bold {
+    font-weight: 500;
+}
+
+.light {
+    color:hsla(0, 0%, 0%, 0.606);
+}
+
+.no-cursor {
+    cursor: default;
+}
+
+.padding {
+    height: .5rem; 
+}
+
+/* General Styling */
+html {
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+body {
+    background-color: var(--red);
+}
+
+.search-container {
+    margin: auto;
+    width: min(57em, 100vw - 3rem);
+    font-size: 1.3rem;
+    flex-grow: 1;
+}
+
+.pokedex-container {
+    margin: auto;
+    width: min(50em, 100vw - 1rem);
+}
+
+/* .background-image {
+    position: absolute;
+    left: 30vw;
+    top: 10vh;
+    width: 80%;
+    max-width: 33rem;
+    transform: rotate(10deg);
+    z-index: -10;
+    filter: opacity(20%);
+} */
+
+body::after {
+    content: ''; 
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+}
+
+/* header */
+
+header {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    padding-inline: 1rem;
+    top: 0;
+    color: var(--grey)
+}
+
+.logo {
+    width: 3rem;
+}
+
+.logo-container {
+    container: logo-container / inline-size;
+}
+
+
+h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
+    text-shadow:     
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+}
+
+@container logo-container (max-width: 55em) {
+    .logo {
+        width: clamp(2rem,5cqw + .1rem, 3rem);
+    }
+    h1 {
+        font-size: clamp(2rem, 5cqw + .1rem, 3rem);
+    }
+}
+
+.search-bar {
+    flex-grow: 1;
+    width: 25vw;
+    padding: .25rem 1.3rem;
+    font-weight: 600;
+    border-radius: 30px;
+    border: 3px solid black;
+    box-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+    background-color: azure;
+}
+
+/* main grid */
+
+.pokemon-grid {
+    padding: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, .25fr));
+    background-color: var(--light-grey);
+    border-radius: 30px;
+    height: 75vh;
+    overflow: auto; 
+    scrollbar-width: none;
+    box-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+    border: 3px solid black;
+    margin-bottom: 1rem;
+}
+
+.pokemon-card-container {
+    background-color: azure;
+    border-radius: 30px;
+    box-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+    background-image: linear-gradient(var(--light-grey) 50%, var(--grey) 50%);
+    max-width: 19rem;
+    aspect-ratio: 1;
+}
+
+.pokemon-card-container:hover {
+    cursor: pointer;
+}
+
+.pokemon-card {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 0;
+}
+
+.pokemon-card-img {
+    width: 60%
+}
+
+.pokemon-number-card {
+    font-size: clamp(.9rem, 1.1rem, 1.2rem);
+    padding-bottom: .3rem;
+    font-weight: 350;
+}
+
+.pokemon-name-card {
+    font-weight: 500;
+    font-size: clamp(1rem, 1.5rem, 2rem);
+}
+
+@media (max-width: 806px) {
+    .pokemon-grid{
+        grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    }
+    .pokemon-name-card {
+        font-size: 1rem;
+    }
+    .pokemon-number-card {
+        font-size: 1rem;
+    }
+    .pokemon-card-img {
+        width: 55%
+    }
+}
+
+@media (max-width: 560px) {
+    .pokemon-grid{
+        grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+    }
+}
+
+/* Stats block */
+
+.pokemon-svg {
+    width: 14rem;
+    position: relative;
+    bottom: -1.5rem;
+}
+
+.chevron {
+    filter: invert(91%) sepia(8%) saturate(47%) hue-rotate(180deg) brightness(106%) contrast(101%);
+}
+
+.chevron:hover {
+    cursor: pointer;
+}
+
+.chevron-flex-box {
+    justify-content: center;
+}
+
+@media (max-width: 400px) {
+    .chevron-flex-box {
+        gap: 0;
+    }
+}
+
+.pokemon-name {
+    color: var(--grey);
+    text-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+    font-size: 4rem;
+    font-weight: 500;
+    padding: 0rem 1rem 0;
+}
+
+@media (max-width: 690px) {
+    .pokemon-name {
+        font-size: clamp(2.5rem, 5vw + 2rem, 4rem);
+    }
+}
+
+.pokemon-number {
+    font-size: 1.3rem;
+    color: var(--grey);
+    font-weight: 300;
+    text-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+}
+
+.type-container {
+    align-content: center;
+    padding-left: 2rem;
+}
+
+.type, .type-1 {
+    border-radius: 2rem;
+    padding: .1rem 1rem;
+    font-weight: 500;
+    box-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);    
+}
+
+/* navigation */
+
+.back-to-home {
+    padding-top: 2rem;
+    padding-left: 1rem;
+    text-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+}
+
+.back-to-home:hover {
+    cursor: pointer;
+}
+
+.stat-card-container {
+    container: stats-nav-container / inline-size;
+}
+
+.stats-card-nav{
+    background-color: var(--grey);
+    padding: 1rem 5rem;
+    max-width: min(100vw - 3rem, 45rem);
+    margin: auto;
+    justify-content: space-around;
+    align-content: center;
+    color: hsla(0, 0%, 0%, 0.527);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    border: 3px solid #000000;
+    box-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+}
+
+@container stats-nav-container (max-width: 45rem) {
+    .stats-card-nav{
+        padding-inline: clamp(1rem, 10cqw + .1rem, 5rem);
+    }
+}
+
+.selected-nav {
+    color: black;
+    font-weight: 600;
+    border-bottom: 3px solid var(--water);
+}
+
+.nav-list:hover {
+    cursor: pointer;
+}
+
+/* stats block */
+
+.about-container {
+    background-color: var(--grey);
+    max-width: min(100vw - 3rem, 45rem);
+    margin: auto;
+    padding: 1rem;
+    border-radius: 30px;
+    border: 3px solid #000000;
+    box-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+    flex-direction: column;
+    margin-bottom: 1rem;
+    cursor: default;
+    font-family: "VT323", monospace;
+}
+
+.grid-formatting {
+    gap: .5rem;
+    max-width: 40rem;
+    padding-inline: 0rem;
+    grid-template-columns: 1fr;
+    flex-grow: 1;
+    font-size: 1.33rem;
+}
+
+.light-background {
+    background-color: rgba(144, 175, 31, 0.375)	;
+    padding: .25rem 1rem;
+    border-radius: 10px;
+    border: 3px solid #000000;
+    box-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+}
+
+.grid-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.pokemon-card {
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+/* Base Stats */
+
+.base-stat-grid{
+    grid-template-columns: .25fr .10fr 1fr;
+    padding-inline: 2rem;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 400px){
+    .base-stat-grid {
+        grid-template-columns: 1fr .15fr;
+        gap: .5rem;
+    }
+    .stat-bar {
+        grid-column: span 3;
+    }
+}
+
+.stat-bar {
+    height: 9px;
+    width: 100%;
+    background-color: darkgrey;
+    margin-top: 13px;
+    position: relative;
+}
+
+.stat-bar-fill {
+    height: 9px;
+    background-color: red;
+    position: absolute;
+}
+
+.note-about-max {
+    grid-column: span 3;
+    font-size: 1.22rem;
+    margin: auto;
+}
+
+.base-stats-heading {
+    grid-column: span 3;
+    margin: auto;
+}
+
+/* Moves */ 
+
+.moves-container {
+    grid-template-columns: repeat(auto-fit, minmax(1rem), 1fr);
+    font-size: 1.2rem;
+}
+
+/* Evolution */
+
+.evolution-grid {
+    padding: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    background-color: var(--light-grey);
+    scrollbar-width: none;
+    box-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+    justify-items: center;
+}
+
+.evolution-container {
+    max-width: 15rem;
+}

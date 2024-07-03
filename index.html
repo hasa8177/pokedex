@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <title>Jamal Hasan | Pokédex</title>
+</head>
+<body id="body">
+    <!-- <img src="./svg/pokedex.svg" alt="" class="background-image hidden" id="background-image"> -->
+        <div id="search-container" class="search-container">
+            <header>
+                <div class="flex logo-container">
+                    <img src="./svg/pokeball.svg" alt="logo" class="logo">
+                    <h1>Pokédex</h1>
+                </div>
+                <div class="flex">
+                    <input class="search-bar" type="text" name="search" id="search" autocomplete="off" autofocus>
+                </div>
+            </header>
+            <section class="pokemon-grid grid" id="pokemon-search-grid">
+            </section>
+            <div class="padding"></div>
+        </div>
+        <div id="pokedex-container" class="pokedex-container hidden">
+                    <img id="back-to-home" class="back-to-home" src="./svg/back-to-home.svg" alt="back-to-home">
+                    <p class="pokemon-name no-cursor" id="pokemon-title"></p>
+                    <div class="flex type-container" id="pokemon-number-type"></div>
+                <div class="flex chevron-flex-box">
+                    <img id="chevron-left" class="chevron" src="./svg/chevron_left.svg" alt="previous-pokemon">
+                    <img id="pokemon-svg" class="pokemon-svg">
+                    <img id="chevron-right" class="chevron" src="./svg/chevron_right.svg" alt="next pokemon">
+                </div>
+                        <nav class="stat-card-container">
+                            <ul class="flex stats-card-nav" role="list">
+                                <li class="nav-list" id="about-btn" onclick="showAbout()">About</li>
+                                <li class="nav-list" id="stats-btn" onclick="showStats()">Stats</li>
+                                <li class="nav-list" id="evolution-btn" onclick="showEvolution()">Evolution</li>
+                            </ul>
+                        </nav>
+                            <section id="about" class="hidden">
+                                    <div class="about-container">
+                                        <p class="bold grid-title">Pokédex Data</p>
+                                        <div class="grid grid-formatting">
+                                            <div class="bold">Species:</div>
+                                            <div id="species" class="light-background"></div>
+                                            <div class="bold">Height:</div>
+                                            <div id="height" class="light-background"></div>
+                                            <div class="bold">Weight:</div>
+                                            <div id="weight" class="light-background"></div>
+                                            <div class="bold">Abilites:</div>
+                                            <div id="abilities" class="light-background"></div>
+                                        </div>
+                                    </div>
+                                    <div class="about-container">
+                                        <p class="bold grid-title">Training</p>
+                                        <div class="grid grid-formatting">
+                                            <div class="bold">Capture Rate:</div>
+                                            <div class="light-background" id="capture"></div>
+                                            <div class="bold">Base Happiness:</div>
+                                            <div class="light-background" id="happiness"></div>
+                                            <div class="bold">Base Experience:</div>
+                                            <div class="light-background" id="base-experience"></div>
+                                            <div class="bold">Growth Rate:</div>
+                                            <div class="light-background" id="growth-rate"></div>
+                                        </div>
+                                    </div>
+                                    <div class="about-container">
+                                        <p class="bold grid-title">Breeding</p>
+                                        <div class="grid grid-formatting">
+                                            <div class="bold">Male:</div>
+                                            <div id="male" class="light-background"></div>
+                                            <div class="bold">Female:</div>
+                                            <div id="female" class="light-background"></div>
+                                            <div class="bold">Egg Groups:</div>
+                                            <div id="egg-group" class="light-background"></div>
+                                            <div class="bold">Egg Cycle:</div>
+                                            <div id="egg-cycle" class="light-background"></div>
+                                        </div>
+                                    </div>
+                            </section>
+                            <section id="stats" class="hidden">
+                                <div class="about-container grid base-stat-grid">
+                                    <p class="bold grid-title base-stats-heading">Base Stats</P>
+                                    <div>HP:</div>
+                                    <div id="hp" class="bold"></div>
+                                    <div class="stat-bar">
+                                        <div class="stat-bar-fill hp"></div>
+                                    </div>
+                                    <div>Atk:</div>
+                                    <div id="attack" class="bold"></div>
+                                    <div class="stat-bar">
+                                        <div class="stat-bar-fill attack"></div>
+                                    </div>
+                                    <div>Defense:</div>
+                                    <div id="defense" class="bold"></div>
+                                    <div class="stat-bar">
+                                        <div class="stat-bar-fill defense"></div>
+                                    </div>
+                                    <div>S Atk:</div>
+                                    <div id="special-attack" class="bold"></div>
+                                    <div class="stat-bar">
+                                        <div class="stat-bar-fill special-attack"></div>
+                                    </div>
+                                    <div>S Def:</div>
+                                    <div id="special-defense" class="bold"></div>
+                                    <div class="stat-bar">
+                                        <div class="stat-bar-fill special-defense"></div>
+                                    </div>
+                                    <div>Speed:</div>
+                                    <div id="speed" class="bold"></div>
+                                    <div class="stat-bar">
+                                        <div class="stat-bar-fill speed"></div>
+                                    </div>
+                                    <div>Total:</div>
+                                    <div id="total" class="bold"></div>
+                                    <div class="stat-bar">
+                                        <div class="stat-bar-fill total"></div>
+                                    </div>
+                                    <p class="note-about-max">Max values assume maximum IVs and maximum EVs</p>
+                                </div>
+                            </section>
+                            <section id="evolution" class="hidden">
+                                <div id="evolution-grid" class="about-container grid evolution-grid content-width">
+                                </div>
+                            </section>
+                            <div class="padding"></div>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>
